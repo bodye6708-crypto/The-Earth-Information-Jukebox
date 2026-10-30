@@ -78,6 +78,7 @@ export interface CountryProfile {
   areaKm2: number;
   climateClass: string;
   meanAnnualTemp: string;
+  currentTemp?: string;
   geographySummaryEn: string;
   geographySummaryAr: string;
   source: string;
@@ -90,6 +91,8 @@ export interface StoryChapter {
   textEn: string;
   textAr: string;
   audioPrompt?: string;
+  audioEn?: string;
+  audioAr?: string;
   interactiveQuestion: {
     qEn: string;
     qAr: string;

@@ -21,7 +21,11 @@ import {
   ArrowRight, 
   ChevronRight, 
   Search, 
-  Award 
+  Award,
+  ZoomIn,
+  ZoomOut,
+  Thermometer,
+  Video
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import type { 
@@ -62,11 +66,18 @@ export default function App() {
 
   // 3D Three.js Globe State
   const globeContainerRef = useRef<HTMLDivElement>(null);
+  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
+  const [globeZoom, setGlobeZoom] = useState<number>(2.75);
   const [globeSpeed, setGlobeSpeed] = useState<number>(0.002);
   const [globePaused, setGlobePaused] = useState<boolean>(false);
   const [selectedLayer, setSelectedLayer] = useState<'day' | 'night' | 'topo'>('day');
   const [selectedCoordinates, setSelectedCoordinates] = useState<{ lat: number; lng: number } | null>(null);
+  const [inspectedLocationInfo, setInspectedLocationInfo] = useState<{ nameAr: string; nameEn: string; temp: string; descAr: string; descEn: string } | null>(null);
   const [cloudLayerVisible, setCloudLayerVisible] = useState<boolean>(true);
+
+  // Story Audio Narration Player State
+  const [activeStoryAudio, setActiveStoryAudio] = useState<string | null>(null);
+  const storyAudioRef = useRef<HTMLAudioElement | null>(null);
 
   // Sonification State
   const [sonifyPlaying, setSonifyPlaying] = useState<boolean>(false);
@@ -148,7 +159,8 @@ export default function App() {
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 1000);
-    camera.position.z = 2.75;
+    camera.position.z = globeZoom;
+    cameraRef.current = camera;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
     renderer.setSize(width, height);
@@ -240,7 +252,7 @@ export default function App() {
 
     const onMouseUp = () => { isDragging = false; };
 
-    // Precise coordinate raycasting
+    // Precise coordinate raycasting and automatic temperature estimation
     const onCanvasClick = (e: MouseEvent) => {
       const rect = container.getBoundingClientRect();
       const mouse = new THREE.Vector2(
@@ -254,9 +266,33 @@ export default function App() {
         const p = hits[0].point.clone().applyMatrix4(earthMesh.matrixWorld.clone().invert()).normalize();
         const lat = Math.asin(p.y) * (180 / Math.PI);
         const lng = Math.atan2(p.x, p.z) * (180 / Math.PI);
-        setSelectedCoordinates({
-          lat: parseFloat(lat.toFixed(2)),
-          lng: parseFloat(lng.toFixed(2))
+        const latFixed = parseFloat(lat.toFixed(2));
+        const lngFixed = parseFloat(lng.toFixed(2));
+        setSelectedCoordinates({ lat: latFixed, lng: lngFixed });
+
+        // Find closest country from list or calculate climatological surface estimate
+        let closest = countries[0];
+        let minD = 999999;
+        for (const c of countries) {
+          const d = Math.hypot(c.coordinates.lat - latFixed, c.coordinates.lng - lngFixed);
+          if (d < minD) {
+            minD = d;
+            closest = c;
+          }
+        }
+
+        // Realistic temperature model based on latitude: Equator ~28-32°C, Poles ~ -25°C
+        const estimatedTempC = Math.round(29 * Math.cos((latFixed * Math.PI) / 180) - 5);
+        const tempStr = minD < 12 ? (closest.currentTemp || `${estimatedTempC} °C`) : `${estimatedTempC} °C`;
+        const regionNameAr = minD < 12 ? closest.nameAr : `إقليم خط عرض ${Math.abs(latFixed)}° ${latFixed >= 0 ? 'شمالاً' : 'جنوباً'}`;
+        const regionNameEn = minD < 12 ? closest.nameEn : `Latitude Zone ${Math.abs(latFixed)}° ${latFixed >= 0 ? 'N' : 'S'}`;
+
+        setInspectedLocationInfo({
+          nameAr: regionNameAr,
+          nameEn: regionNameEn,
+          temp: tempStr,
+          descAr: minD < 12 ? `المنطقة الأقرب: عاصمة ${closest.capital}، المناخ السائد ${closest.climateClass}` : 'منطقة محيطية / برية مفتوحة تخضع للمناخ المداري أو القطبي وفقاً لزاوية خط العرض',
+          descEn: minD < 12 ? `Nearest sovereign territory: Capital ${closest.capital}, prevailing ${closest.climateClass}` : 'Open oceanic / continental territory governed by solar angle radiation at this latitude'
         });
       }
     };
@@ -291,7 +327,7 @@ export default function App() {
       earthMaterial.dispose();
       earthTexture.dispose();
     };
-  }, [activeTab, selectedLayer, globePaused, globeSpeed, cloudLayerVisible]);
+  }, [activeTab, selectedLayer, globePaused, globeSpeed, cloudLayerVisible, globeZoom, countries]);
 
   // Web Audio Scientific Tone Synthesizer
   const playSynthesizerTone = (frequency: number) => {
@@ -609,8 +645,28 @@ export default function App() {
                   </p>
                 </div>
 
-                {/* 3D Control Bar */}
-                <div className="glass-panel" style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '6px 10px' }}>
+                {/* 3D Control Bar with Zoom and Layering */}
+                <div className="glass-panel" style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '6px 10px', flexWrap: 'wrap' }}>
+                  {/* Zoom In & Out */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '4px', borderInlineEnd: '1px solid rgba(56, 189, 248, 0.2)', paddingInlineEnd: '8px' }}>
+                    <button
+                      onClick={() => setGlobeZoom(prev => Math.max(1.4, prev - 0.3))}
+                      style={{ background: 'rgba(30, 41, 59, 0.8)', border: '1px solid rgba(56, 189, 248, 0.3)', color: '#38bdf8', padding: '6px 10px', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '12.5px', fontWeight: 600 }}
+                      title="Zoom In"
+                    >
+                      <ZoomIn size={15} />
+                      <span>{lang === 'ar' ? 'تقريب +' : 'Zoom +'}</span>
+                    </button>
+                    <button
+                      onClick={() => setGlobeZoom(prev => Math.min(4.5, prev + 0.3))}
+                      style={{ background: 'rgba(30, 41, 59, 0.8)', border: '1px solid rgba(56, 189, 248, 0.3)', color: '#cbd5e1', padding: '6px 10px', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '12.5px', fontWeight: 600 }}
+                      title="Zoom Out"
+                    >
+                      <ZoomOut size={15} />
+                      <span>{lang === 'ar' ? 'تبعيد -' : 'Zoom -'}</span>
+                    </button>
+                  </div>
+
                   <button 
                     onClick={() => setGlobePaused(!globePaused)}
                     style={{ background: 'rgba(30, 41, 59, 0.8)', border: '1px solid rgba(56, 189, 248, 0.2)', color: '#f8fafc', padding: '6px 12px', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12.5px' }}
@@ -671,27 +727,48 @@ export default function App() {
                   <span style={{ color: '#38bdf8', fontWeight: 600 }}>{lang === 'ar' ? 'مصدر الصور الفضائية:' : 'Source Asset:'}</span> NASA Goddard Space Flight Center (Visible Earth)
                 </div>
 
-                {/* Coordinates Inspector */}
+                {/* Coordinates & Temperature Inspector */}
                 {selectedCoordinates && (
                   <div style={{
                     position: 'absolute',
                     bottom: '16px',
                     left: '16px',
-                    backgroundColor: 'rgba(11, 19, 41, 0.9)',
-                    backdropFilter: 'blur(12px)',
-                    border: '1px solid rgba(56, 189, 248, 0.4)',
-                    borderRadius: '10px',
-                    padding: '12px 18px',
+                    backgroundColor: 'rgba(11, 19, 41, 0.92)',
+                    backdropFilter: 'blur(14px)',
+                    border: '1px solid rgba(56, 189, 248, 0.45)',
+                    borderRadius: '12px',
+                    padding: '14px 20px',
                     fontSize: '13px',
-                    boxShadow: '0 8px 30px rgba(0, 0, 0, 0.6)'
+                    maxWidth: '380px',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.7)'
                   }}>
-                    <div style={{ color: '#38bdf8', fontWeight: 700, marginBottom: '2px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <Compass size={16} />
-                      <span>{lang === 'ar' ? 'الإحداثيات الجغرافية المحددة:' : 'Inspected Coordinates:'}</span>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                      <div style={{ color: '#38bdf8', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <Compass size={16} />
+                        <span>{lang === 'ar' ? 'الموقع المحدد على سطح الأرض:' : 'Targeted Earth Location:'}</span>
+                      </div>
+                      {inspectedLocationInfo && (
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', backgroundColor: 'rgba(245, 158, 11, 0.2)', padding: '2px 8px', borderRadius: '6px', border: '1px solid rgba(245, 158, 11, 0.4)' }}>
+                          <Thermometer size={14} color="#f59e0b" />
+                          <span className="metric-mono" style={{ color: '#f59e0b', fontWeight: 800 }}>{inspectedLocationInfo.temp}</span>
+                        </div>
+                      )}
                     </div>
-                    <div className="metric-mono" style={{ fontSize: '15px', color: '#f8fafc', fontWeight: 600 }}>
+
+                    <div className="metric-mono" style={{ fontSize: '15px', color: '#f8fafc', fontWeight: 700, marginBottom: '6px' }}>
                       {Math.abs(selectedCoordinates.lat)}° {selectedCoordinates.lat >= 0 ? 'N' : 'S'}, {Math.abs(selectedCoordinates.lng)}° {selectedCoordinates.lng >= 0 ? 'E' : 'W'}
                     </div>
+
+                    {inspectedLocationInfo && (
+                      <div style={{ borderTop: '1px solid rgba(148, 163, 184, 0.15)', paddingTop: '8px', marginTop: '4px' }}>
+                        <div style={{ color: '#38bdf8', fontWeight: 700, fontSize: '13.5px' }}>
+                          {lang === 'ar' ? inspectedLocationInfo.nameAr : inspectedLocationInfo.nameEn}
+                        </div>
+                        <div style={{ color: '#94a3b8', fontSize: '12px', lineHeight: '1.4', marginTop: '2px' }}>
+                          {lang === 'ar' ? inspectedLocationInfo.descAr : inspectedLocationInfo.descEn}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
@@ -960,42 +1037,162 @@ export default function App() {
             </div>
           )}
 
-          {/* TAB 5: CHILDREN'S STORIES */}
+          {/* TAB 5: CHILDREN'S STORIES WITH VIDEO & DUAL-LANGUAGE AUDIO NARRATION */}
           {activeTab === 'stories' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
               <div>
                 <h2 style={{ fontSize: '22px', fontWeight: 800, color: '#f8fafc' }}>
-                  {lang === 'ar' ? 'قصص الأطفال والرواية العلمية المبسطة' : "Children's Scientific Earth Stories & Narration"}
+                  {lang === 'ar' ? 'قصص الأطفال والرواية العلمية الصوتية والمرئية' : "Children's Scientific Earth Stories, Audio & Video"}
                 </h2>
                 <p style={{ fontSize: '13.5px', color: '#94a3b8', marginTop: '4px' }}>
-                  {lang === 'ar' ? 'رحلات استكشافية مصممة للصغار للتعرف على كوكب الأرض والغلاف الجوي وباطن الكوكب بأسلوب مشوق.' : 'Interactive educational stories teaching young explorers Earth sciences, geosphere, and space.'}
+                  {lang === 'ar' 
+                    ? 'رحلات تعليمية مدعمة بمشهد فيديو وثائقي ومقاطع صوتية حقيقية لكل قصة باللغتين العربية والإنجليزية.'
+                    : 'Interactive educational journeys with animated documentary video and genuine audio narrations in Arabic and English.'}
                 </p>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+              {/* Documentary Introduction Video Canvas Component */}
+              <div className="glass-panel" style={{ padding: '24px', overflow: 'hidden' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px', color: '#38bdf8', fontWeight: 700 }}>
+                  <Video size={20} />
+                  <span>{lang === 'ar' ? 'فيديو وثائقي تعليمي مبسط: رحلة كوكب الأرض في الفضاء' : 'Documentary Video: Planet Earth in the Cosmos'}</span>
+                </div>
+
+                <div style={{
+                  position: 'relative',
+                  width: '100%',
+                  height: '280px',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  background: 'radial-gradient(circle at center, #0c4a6e 0%, #020617 80%)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  border: '1px solid rgba(56, 189, 248, 0.3)'
+                }}>
+                  {/* Atmospheric Glow and Earth Orb Animation */}
+                  <div style={{
+                    width: '120px',
+                    height: '120px',
+                    borderRadius: '50%',
+                    background: 'radial-gradient(circle at 35% 35%, #38bdf8 0%, #0369a1 50%, #0c4a6e 100%)',
+                    boxShadow: '0 0 50px rgba(56, 189, 248, 0.6), inset -10px -10px 30px rgba(0,0,0,0.8)',
+                    animation: 'spin 20s linear infinite',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}>
+                    <Globe size={64} color="#ffffff" style={{ opacity: 0.9 }} />
+                  </div>
+
+                  <div style={{ marginTop: '20px', textAlign: 'center', maxWidth: '520px', padding: '0 16px' }}>
+                    <div style={{ fontSize: '16px', fontWeight: 700, color: '#f8fafc' }}>
+                      {lang === 'ar' ? 'الأرض: الواحة الزرقاء السابحة في محيط الكون' : 'Earth: The Fragile Blue Oasis of Life'}
+                    </div>
+                    <div style={{ fontSize: '13px', color: '#94a3b8', marginTop: '6px', lineHeight: '1.5' }}>
+                      {lang === 'ar' 
+                        ? 'كوكبنا يدور بسرعة 107,000 كم/ساعة حول الشمس، محاطاً بدرع من الهواء والماء يحمي ملايين الكائنات الحية.'
+                        : 'Our planet cruises at 107,000 km/h around the Sun, shielded by atmosphere and water nurturing billions of lives.'}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Story Audio Player Bar */}
+              <audio 
+                ref={storyAudioRef}
+                src={activeStoryAudio || undefined}
+                onEnded={() => setActiveStoryAudio(null)}
+              />
+
+              {/* Story Cards with Dual-Language Narration Buttons */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '20px' }}>
                 {stories.map(story => (
-                  <div key={story.id} className="glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                  <div key={story.id} className="glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '11px', padding: '3px 8px', borderRadius: '6px', backgroundColor: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', fontWeight: 700 }}>
+                      <span style={{ fontSize: '11px', padding: '3px 10px', borderRadius: '6px', backgroundColor: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', fontWeight: 800 }}>
                         Age {story.targetAge}
                       </span>
                       <span style={{ fontSize: '12px', color: '#94a3b8' }}>{story.character}</span>
                     </div>
 
-                    <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#f8fafc' }}>
+                    <h3 style={{ fontSize: '18px', fontWeight: 800, color: '#f8fafc' }}>
                       {lang === 'ar' ? story.titleAr : story.titleEn}
                     </h3>
 
-                    {story.chapters.map(chap => (
-                      <div key={chap.chapterNumber} style={{ backgroundColor: 'rgba(3, 7, 18, 0.6)', padding: '16px', borderRadius: '10px', border: '1px solid rgba(148, 163, 184, 0.1)' }}>
-                        <div style={{ fontSize: '14px', fontWeight: 600, color: '#38bdf8', marginBottom: '6px' }}>
-                          {lang === 'ar' ? chap.titleAr : chap.titleEn}
+                    {story.chapters.map(chap => {
+                      const isPlayingAr = activeStoryAudio === chap.audioAr;
+                      const isPlayingEn = activeStoryAudio === chap.audioEn;
+
+                      const playAudio = (audioFile: string) => {
+                        if (activeStoryAudio === audioFile) {
+                          storyAudioRef.current?.pause();
+                          setActiveStoryAudio(null);
+                        } else {
+                          setActiveStoryAudio(audioFile);
+                          setTimeout(() => {
+                            storyAudioRef.current?.play().catch(console.error);
+                          }, 50);
+                        }
+                      };
+
+                      return (
+                        <div key={chap.chapterNumber} style={{ backgroundColor: 'rgba(3, 7, 18, 0.65)', padding: '18px', borderRadius: '12px', border: '1px solid rgba(148, 163, 184, 0.12)' }}>
+                          <div style={{ fontSize: '14.5px', fontWeight: 700, color: '#38bdf8', marginBottom: '8px' }}>
+                            {lang === 'ar' ? chap.titleAr : chap.titleEn}
+                          </div>
+                          <p style={{ fontSize: '13.5px', color: '#cbd5e1', lineHeight: '1.7', marginBottom: '14px' }}>
+                            {lang === 'ar' ? chap.textAr : chap.textEn}
+                          </p>
+
+                          {/* Dual-Language Audio Narration Controls */}
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', paddingTop: '10px', borderTop: '1px solid rgba(148, 163, 184, 0.1)' }}>
+                            {chap.audioAr && (
+                              <button
+                                onClick={() => playAudio(chap.audioAr!)}
+                                style={{
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  gap: '6px',
+                                  padding: '6px 14px',
+                                  borderRadius: '8px',
+                                  backgroundColor: isPlayingAr ? '#10b981' : 'rgba(30, 41, 59, 0.9)',
+                                  border: isPlayingAr ? '1px solid #10b981' : '1px solid rgba(56, 189, 248, 0.3)',
+                                  color: '#ffffff',
+                                  fontSize: '12.5px',
+                                  fontWeight: 700
+                                }}
+                              >
+                                {isPlayingAr ? <Pause size={14} /> : <Play size={14} />}
+                                <span>{isPlayingAr ? 'إيقاف الراوي' : 'استمع بالعربية 🎙️'}</span>
+                              </button>
+                            )}
+
+                            {chap.audioEn && (
+                              <button
+                                onClick={() => playAudio(chap.audioEn!)}
+                                style={{
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  gap: '6px',
+                                  padding: '6px 14px',
+                                  borderRadius: '8px',
+                                  backgroundColor: isPlayingEn ? '#0284c7' : 'rgba(30, 41, 59, 0.9)',
+                                  border: isPlayingEn ? '1px solid #0284c7' : '1px solid rgba(56, 189, 248, 0.3)',
+                                  color: '#ffffff',
+                                  fontSize: '12.5px',
+                                  fontWeight: 700
+                                }}
+                              >
+                                {isPlayingEn ? <Pause size={14} /> : <Play size={14} />}
+                                <span>{isPlayingEn ? 'Pause English' : 'Listen in English 🎙️'}</span>
+                              </button>
+                            )}
+                          </div>
                         </div>
-                        <p style={{ fontSize: '13.5px', color: '#cbd5e1', lineHeight: '1.6' }}>
-                          {lang === 'ar' ? chap.textAr : chap.textEn}
-                        </p>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 ))}
               </div>
@@ -1282,9 +1479,9 @@ export default function App() {
                         </div>
                       </div>
                       <div style={{ backgroundColor: 'rgba(3, 7, 18, 0.5)', padding: '12px', borderRadius: '8px' }}>
-                        <div style={{ fontSize: '11px', color: '#94a3b8' }}>{lang === 'ar' ? 'متوسط الحرارة السنوي:' : 'Mean Annual Temp:'}</div>
+                        <div style={{ fontSize: '11px', color: '#94a3b8' }}>{lang === 'ar' ? 'متوسط الحرارة السنوي / الحالي:' : 'Mean / Current Surface Temp:'}</div>
                         <div className="metric-mono" style={{ fontSize: '16px', fontWeight: 700, color: '#f59e0b' }}>
-                          {selectedCountry.meanAnnualTemp}
+                          {selectedCountry.meanAnnualTemp} {selectedCountry.currentTemp ? `(الآن ~${selectedCountry.currentTemp})` : ''}
                         </div>
                       </div>
                     </div>

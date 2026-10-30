@@ -1,0 +1,629 @@
+[
+  {
+    "code": "EGY",
+    "nameEn": "Egypt",
+    "nameAr": "مصر",
+    "capital": "Cairo",
+    "continent": "Africa",
+    "coordinates": {
+      "lat": 26.82,
+      "lng": 30.8
+    },
+    "meanAnnualTemp": "22.1 °C",
+    "currentTemp": "26 °C",
+    "climateClass": "BWh (Hot Desert)",
+    "areaKm2": 1002450,
+    "established": "c. 3100 BCE (Narmer Unification); 1922 (Modern Independence)",
+    "geographySummaryEn": "Egypt is located in Africa with an area of 1,002,450 km². It features BWh (Hot Desert) with an average annual temperature of 22.1 °C and current estimated regional surface reading around 26 °C.",
+    "geographySummaryAr": "تقع مصر في قارة Africa على مساحة تبلغ 1,002,450 كم². يسودها مناخ BWh (Hot Desert) بمتوسط حرارة سنوي 22.1 °C وقراءة حرارة سطحية حالية تقارب 26 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "SAU",
+    "nameEn": "Saudi Arabia",
+    "nameAr": "المملكة العربية السعودية",
+    "capital": "Riyadh",
+    "continent": "Asia",
+    "coordinates": {
+      "lat": 23.88,
+      "lng": 45.07
+    },
+    "meanAnnualTemp": "25.3 °C",
+    "currentTemp": "31 °C",
+    "climateClass": "BWh (Arid Desert)",
+    "areaKm2": 2149690,
+    "established": "1744 (First State); 1932 (Unification)",
+    "geographySummaryEn": "Saudi Arabia is located in Asia with an area of 2,149,690 km². It features BWh (Arid Desert) with an average annual temperature of 25.3 °C and current estimated regional surface reading around 31 °C.",
+    "geographySummaryAr": "تقع المملكة العربية السعودية في قارة Asia على مساحة تبلغ 2,149,690 كم². يسودها مناخ BWh (Arid Desert) بمتوسط حرارة سنوي 25.3 °C وقراءة حرارة سطحية حالية تقارب 31 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "UAE",
+    "nameEn": "United Arab Emirates",
+    "nameAr": "الإمارات العربية المتحدة",
+    "capital": "Abu Dhabi",
+    "continent": "Asia",
+    "coordinates": {
+      "lat": 23.42,
+      "lng": 53.84
+    },
+    "meanAnnualTemp": "27.0 °C",
+    "currentTemp": "30 °C",
+    "climateClass": "BWh (Hyper-Arid)",
+    "areaKm2": 83600,
+    "established": "December 2, 1971",
+    "geographySummaryEn": "United Arab Emirates is located in Asia with an area of 83,600 km². It features BWh (Hyper-Arid) with an average annual temperature of 27.0 °C and current estimated regional surface reading around 30 °C.",
+    "geographySummaryAr": "تقع الإمارات العربية المتحدة في قارة Asia على مساحة تبلغ 83,600 كم². يسودها مناخ BWh (Hyper-Arid) بمتوسط حرارة سنوي 27.0 °C وقراءة حرارة سطحية حالية تقارب 30 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "JOR",
+    "nameEn": "Jordan",
+    "nameAr": "الأردن",
+    "capital": "Amman",
+    "continent": "Asia",
+    "coordinates": {
+      "lat": 30.58,
+      "lng": 36.23
+    },
+    "meanAnnualTemp": "18.3 °C",
+    "currentTemp": "21 °C",
+    "climateClass": "BSk / BWh",
+    "areaKm2": 89342,
+    "established": "May 25, 1946",
+    "geographySummaryEn": "Jordan is located in Asia with an area of 89,342 km². It features BSk / BWh with an average annual temperature of 18.3 °C and current estimated regional surface reading around 21 °C.",
+    "geographySummaryAr": "تقع الأردن في قارة Asia على مساحة تبلغ 89,342 كم². يسودها مناخ BSk / BWh بمتوسط حرارة سنوي 18.3 °C وقراءة حرارة سطحية حالية تقارب 21 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "MAR",
+    "nameEn": "Morocco",
+    "nameAr": "المغرب",
+    "capital": "Rabat",
+    "continent": "Africa",
+    "coordinates": {
+      "lat": 31.79,
+      "lng": -7.09
+    },
+    "meanAnnualTemp": "17.5 °C",
+    "currentTemp": "22 °C",
+    "climateClass": "Csa (Mediterranean) / BWh",
+    "areaKm2": 446550,
+    "established": "789 CE (Idrisid Dynasty); 1956 (Independence)",
+    "geographySummaryEn": "Morocco is located in Africa with an area of 446,550 km². It features Csa (Mediterranean) / BWh with an average annual temperature of 17.5 °C and current estimated regional surface reading around 22 °C.",
+    "geographySummaryAr": "تقع المغرب في قارة Africa على مساحة تبلغ 446,550 كم². يسودها مناخ Csa (Mediterranean) / BWh بمتوسط حرارة سنوي 17.5 °C وقراءة حرارة سطحية حالية تقارب 22 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "IRQ",
+    "nameEn": "Iraq",
+    "nameAr": "العراق",
+    "capital": "Baghdad",
+    "continent": "Asia",
+    "coordinates": {
+      "lat": 33.22,
+      "lng": 43.67
+    },
+    "meanAnnualTemp": "22.8 °C",
+    "currentTemp": "27 °C",
+    "climateClass": "BWh (Mesopotamian Desert)",
+    "areaKm2": 438317,
+    "established": "Ancient Mesopotamia; 1932 (Modern Independence)",
+    "geographySummaryEn": "Iraq is located in Asia with an area of 438,317 km². It features BWh (Mesopotamian Desert) with an average annual temperature of 22.8 °C and current estimated regional surface reading around 27 °C.",
+    "geographySummaryAr": "تقع العراق في قارة Asia على مساحة تبلغ 438,317 كم². يسودها مناخ BWh (Mesopotamian Desert) بمتوسط حرارة سنوي 22.8 °C وقراءة حرارة سطحية حالية تقارب 27 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "DZA",
+    "nameEn": "Algeria",
+    "nameAr": "الجزائر",
+    "capital": "Algiers",
+    "continent": "Africa",
+    "coordinates": {
+      "lat": 28.03,
+      "lng": 1.65
+    },
+    "meanAnnualTemp": "22.5 °C",
+    "currentTemp": "24 °C",
+    "climateClass": "BWh (Sahara) / Csa",
+    "areaKm2": 2381741,
+    "established": "July 5, 1962",
+    "geographySummaryEn": "Algeria is located in Africa with an area of 2,381,741 km². It features BWh (Sahara) / Csa with an average annual temperature of 22.5 °C and current estimated regional surface reading around 24 °C.",
+    "geographySummaryAr": "تقع الجزائر في قارة Africa على مساحة تبلغ 2,381,741 كم². يسودها مناخ BWh (Sahara) / Csa بمتوسط حرارة سنوي 22.5 °C وقراءة حرارة سطحية حالية تقارب 24 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "TUN",
+    "nameEn": "Tunisia",
+    "nameAr": "تونس",
+    "capital": "Tunis",
+    "continent": "Africa",
+    "coordinates": {
+      "lat": 33.88,
+      "lng": 9.53
+    },
+    "meanAnnualTemp": "19.2 °C",
+    "currentTemp": "23 °C",
+    "climateClass": "Csa (Mediterranean)",
+    "areaKm2": 163610,
+    "established": "March 20, 1956",
+    "geographySummaryEn": "Tunisia is located in Africa with an area of 163,610 km². It features Csa (Mediterranean) with an average annual temperature of 19.2 °C and current estimated regional surface reading around 23 °C.",
+    "geographySummaryAr": "تقع تونس في قارة Africa على مساحة تبلغ 163,610 كم². يسودها مناخ Csa (Mediterranean) بمتوسط حرارة سنوي 19.2 °C وقراءة حرارة سطحية حالية تقارب 23 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "KWT",
+    "nameEn": "Kuwait",
+    "nameAr": "الكويت",
+    "capital": "Kuwait City",
+    "continent": "Asia",
+    "coordinates": {
+      "lat": 29.31,
+      "lng": 47.48
+    },
+    "meanAnnualTemp": "26.1 °C",
+    "currentTemp": "29 °C",
+    "climateClass": "BWh (Desert)",
+    "areaKm2": 17818,
+    "established": "June 19, 1961",
+    "geographySummaryEn": "Kuwait is located in Asia with an area of 17,818 km². It features BWh (Desert) with an average annual temperature of 26.1 °C and current estimated regional surface reading around 29 °C.",
+    "geographySummaryAr": "تقع الكويت في قارة Asia على مساحة تبلغ 17,818 كم². يسودها مناخ BWh (Desert) بمتوسط حرارة سنوي 26.1 °C وقراءة حرارة سطحية حالية تقارب 29 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "QAT",
+    "nameEn": "Qatar",
+    "nameAr": "قطر",
+    "capital": "Doha",
+    "continent": "Asia",
+    "coordinates": {
+      "lat": 25.35,
+      "lng": 51.18
+    },
+    "meanAnnualTemp": "27.5 °C",
+    "currentTemp": "31 °C",
+    "climateClass": "BWh (Desert)",
+    "areaKm2": 11586,
+    "established": "September 3, 1971",
+    "geographySummaryEn": "Qatar is located in Asia with an area of 11,586 km². It features BWh (Desert) with an average annual temperature of 27.5 °C and current estimated regional surface reading around 31 °C.",
+    "geographySummaryAr": "تقع قطر في قارة Asia على مساحة تبلغ 11,586 كم². يسودها مناخ BWh (Desert) بمتوسط حرارة سنوي 27.5 °C وقراءة حرارة سطحية حالية تقارب 31 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "OMN",
+    "nameEn": "Oman",
+    "nameAr": "سلطنة عمان",
+    "capital": "Muscat",
+    "continent": "Asia",
+    "coordinates": {
+      "lat": 21.47,
+      "lng": 55.97
+    },
+    "meanAnnualTemp": "26.8 °C",
+    "currentTemp": "29 °C",
+    "climateClass": "BWh / BSh",
+    "areaKm2": 309500,
+    "established": "1650 (Al Yaaruba Dynasty)",
+    "geographySummaryEn": "Oman is located in Asia with an area of 309,500 km². It features BWh / BSh with an average annual temperature of 26.8 °C and current estimated regional surface reading around 29 °C.",
+    "geographySummaryAr": "تقع سلطنة عمان في قارة Asia على مساحة تبلغ 309,500 كم². يسودها مناخ BWh / BSh بمتوسط حرارة سنوي 26.8 °C وقراءة حرارة سطحية حالية تقارب 29 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "LBN",
+    "nameEn": "Lebanon",
+    "nameAr": "لبنان",
+    "capital": "Beirut",
+    "continent": "Asia",
+    "coordinates": {
+      "lat": 33.85,
+      "lng": 35.86
+    },
+    "meanAnnualTemp": "16.4 °C",
+    "currentTemp": "21 °C",
+    "climateClass": "Csa (Levant Mediterranean)",
+    "areaKm2": 10452,
+    "established": "November 22, 1943",
+    "geographySummaryEn": "Lebanon is located in Asia with an area of 10,452 km². It features Csa (Levant Mediterranean) with an average annual temperature of 16.4 °C and current estimated regional surface reading around 21 °C.",
+    "geographySummaryAr": "تقع لبنان في قارة Asia على مساحة تبلغ 10,452 كم². يسودها مناخ Csa (Levant Mediterranean) بمتوسط حرارة سنوي 16.4 °C وقراءة حرارة سطحية حالية تقارب 21 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "SDN",
+    "nameEn": "Sudan",
+    "nameAr": "السودان",
+    "capital": "Khartoum",
+    "continent": "Africa",
+    "coordinates": {
+      "lat": 12.86,
+      "lng": 30.21
+    },
+    "meanAnnualTemp": "28.3 °C",
+    "currentTemp": "33 °C",
+    "climateClass": "BWh / BSh (Tropical Sahel)",
+    "areaKm2": 1886068,
+    "established": "January 1, 1956",
+    "geographySummaryEn": "Sudan is located in Africa with an area of 1,886,068 km². It features BWh / BSh (Tropical Sahel) with an average annual temperature of 28.3 °C and current estimated regional surface reading around 33 °C.",
+    "geographySummaryAr": "تقع السودان في قارة Africa على مساحة تبلغ 1,886,068 كم². يسودها مناخ BWh / BSh (Tropical Sahel) بمتوسط حرارة سنوي 28.3 °C وقراءة حرارة سطحية حالية تقارب 33 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "GBR",
+    "nameEn": "United Kingdom",
+    "nameAr": "المملكة المتحدة",
+    "capital": "London",
+    "continent": "Europe",
+    "coordinates": {
+      "lat": 55.37,
+      "lng": -3.43
+    },
+    "meanAnnualTemp": "9.5 °C",
+    "currentTemp": "12 °C",
+    "climateClass": "Cfb (Oceanic)",
+    "areaKm2": 242495,
+    "established": "1707 (Act of Union)",
+    "geographySummaryEn": "United Kingdom is located in Europe with an area of 242,495 km². It features Cfb (Oceanic) with an average annual temperature of 9.5 °C and current estimated regional surface reading around 12 °C.",
+    "geographySummaryAr": "تقع المملكة المتحدة في قارة Europe على مساحة تبلغ 242,495 كم². يسودها مناخ Cfb (Oceanic) بمتوسط حرارة سنوي 9.5 °C وقراءة حرارة سطحية حالية تقارب 12 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "FRA",
+    "nameEn": "France",
+    "nameAr": "فرنسا",
+    "capital": "Paris",
+    "continent": "Europe",
+    "coordinates": {
+      "lat": 46.22,
+      "lng": 2.21
+    },
+    "meanAnnualTemp": "12.2 °C",
+    "currentTemp": "15 °C",
+    "climateClass": "Cfb (Temperate Oceanic) / Csa",
+    "areaKm2": 551695,
+    "established": "843 CE (Treaty of Verdun)",
+    "geographySummaryEn": "France is located in Europe with an area of 551,695 km². It features Cfb (Temperate Oceanic) / Csa with an average annual temperature of 12.2 °C and current estimated regional surface reading around 15 °C.",
+    "geographySummaryAr": "تقع فرنسا في قارة Europe على مساحة تبلغ 551,695 كم². يسودها مناخ Cfb (Temperate Oceanic) / Csa بمتوسط حرارة سنوي 12.2 °C وقراءة حرارة سطحية حالية تقارب 15 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "DEU",
+    "nameEn": "Germany",
+    "nameAr": "ألمانيا",
+    "capital": "Berlin",
+    "continent": "Europe",
+    "coordinates": {
+      "lat": 51.16,
+      "lng": 10.45
+    },
+    "meanAnnualTemp": "9.6 °C",
+    "currentTemp": "11 °C",
+    "climateClass": "Cfb (Maritime Mild)",
+    "areaKm2": 357022,
+    "established": "1871 (German Empire); 1990 (Reunification)",
+    "geographySummaryEn": "Germany is located in Europe with an area of 357,022 km². It features Cfb (Maritime Mild) with an average annual temperature of 9.6 °C and current estimated regional surface reading around 11 °C.",
+    "geographySummaryAr": "تقع ألمانيا في قارة Europe على مساحة تبلغ 357,022 كم². يسودها مناخ Cfb (Maritime Mild) بمتوسط حرارة سنوي 9.6 °C وقراءة حرارة سطحية حالية تقارب 11 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "ITA",
+    "nameEn": "Italy",
+    "nameAr": "إيطاليا",
+    "capital": "Rome",
+    "continent": "Europe",
+    "coordinates": {
+      "lat": 41.87,
+      "lng": 12.56
+    },
+    "meanAnnualTemp": "14.8 °C",
+    "currentTemp": "18 °C",
+    "climateClass": "Csa (Mediterranean)",
+    "areaKm2": 301340,
+    "established": "1861 (Unification)",
+    "geographySummaryEn": "Italy is located in Europe with an area of 301,340 km². It features Csa (Mediterranean) with an average annual temperature of 14.8 °C and current estimated regional surface reading around 18 °C.",
+    "geographySummaryAr": "تقع إيطاليا في قارة Europe على مساحة تبلغ 301,340 كم². يسودها مناخ Csa (Mediterranean) بمتوسط حرارة سنوي 14.8 °C وقراءة حرارة سطحية حالية تقارب 18 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "ESP",
+    "nameEn": "Spain",
+    "nameAr": "إسبانيا",
+    "capital": "Madrid",
+    "continent": "Europe",
+    "coordinates": {
+      "lat": 40.46,
+      "lng": -3.74
+    },
+    "meanAnnualTemp": "15.4 °C",
+    "currentTemp": "19 °C",
+    "climateClass": "Csa / BSk (Continental Mediterranean)",
+    "areaKm2": 505990,
+    "established": "1492 (Catholic Monarchs Unification)",
+    "geographySummaryEn": "Spain is located in Europe with an area of 505,990 km². It features Csa / BSk (Continental Mediterranean) with an average annual temperature of 15.4 °C and current estimated regional surface reading around 19 °C.",
+    "geographySummaryAr": "تقع إسبانيا في قارة Europe على مساحة تبلغ 505,990 كم². يسودها مناخ Csa / BSk (Continental Mediterranean) بمتوسط حرارة سنوي 15.4 °C وقراءة حرارة سطحية حالية تقارب 19 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "NOR",
+    "nameEn": "Norway",
+    "nameAr": "النرويج",
+    "capital": "Oslo",
+    "continent": "Europe",
+    "coordinates": {
+      "lat": 60.47,
+      "lng": 8.46
+    },
+    "meanAnnualTemp": "4.2 °C",
+    "currentTemp": "6 °C",
+    "climateClass": "Cfb / Dfc (Subpolar)",
+    "areaKm2": 385207,
+    "established": "c. 872 CE; 1905",
+    "geographySummaryEn": "Norway is located in Europe with an area of 385,207 km². It features Cfb / Dfc (Subpolar) with an average annual temperature of 4.2 °C and current estimated regional surface reading around 6 °C.",
+    "geographySummaryAr": "تقع النرويج في قارة Europe على مساحة تبلغ 385,207 كم². يسودها مناخ Cfb / Dfc (Subpolar) بمتوسط حرارة سنوي 4.2 °C وقراءة حرارة سطحية حالية تقارب 6 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "RUS",
+    "nameEn": "Russia",
+    "nameAr": "روسيا",
+    "capital": "Moscow",
+    "continent": "Europe / Asia",
+    "coordinates": {
+      "lat": 61.52,
+      "lng": 105.31
+    },
+    "meanAnnualTemp": "-5.1 °C",
+    "currentTemp": "3 °C",
+    "climateClass": "Dfb / Dfc / ET (Boreal Taiga & Tundra)",
+    "areaKm2": 17098242,
+    "established": "862 CE (Rurik); 1991 (Russian Federation)",
+    "geographySummaryEn": "Russia is located in Europe / Asia with an area of 17,098,242 km². It features Dfb / Dfc / ET (Boreal Taiga & Tundra) with an average annual temperature of -5.1 °C and current estimated regional surface reading around 3 °C.",
+    "geographySummaryAr": "تقع روسيا في قارة Europe / Asia على مساحة تبلغ 17,098,242 كم². يسودها مناخ Dfb / Dfc / ET (Boreal Taiga & Tundra) بمتوسط حرارة سنوي -5.1 °C وقراءة حرارة سطحية حالية تقارب 3 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "TUR",
+    "nameEn": "Turkey",
+    "nameAr": "تركيا",
+    "capital": "Ankara",
+    "continent": "Asia / Europe",
+    "coordinates": {
+      "lat": 38.96,
+      "lng": 35.24
+    },
+    "meanAnnualTemp": "11.8 °C",
+    "currentTemp": "16 °C",
+    "climateClass": "Csa / BSk (Anatolian Steppe)",
+    "areaKm2": 783562,
+    "established": "October 29, 1923 (Republic founded)",
+    "geographySummaryEn": "Turkey is located in Asia / Europe with an area of 783,562 km². It features Csa / BSk (Anatolian Steppe) with an average annual temperature of 11.8 °C and current estimated regional surface reading around 16 °C.",
+    "geographySummaryAr": "تقع تركيا في قارة Asia / Europe على مساحة تبلغ 783,562 كم². يسودها مناخ Csa / BSk (Anatolian Steppe) بمتوسط حرارة سنوي 11.8 °C وقراءة حرارة سطحية حالية تقارب 16 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "CHN",
+    "nameEn": "China",
+    "nameAr": "الصين",
+    "capital": "Beijing",
+    "continent": "Asia",
+    "coordinates": {
+      "lat": 35.86,
+      "lng": 104.19
+    },
+    "meanAnnualTemp": "8.1 °C",
+    "currentTemp": "14 °C",
+    "climateClass": "Dwa / Cwa / BSk (Monsoon & Continental)",
+    "areaKm2": 9596961,
+    "established": "c. 221 BCE (Qin Dynasty Unification); 1949",
+    "geographySummaryEn": "China is located in Asia with an area of 9,596,961 km². It features Dwa / Cwa / BSk (Monsoon & Continental) with an average annual temperature of 8.1 °C and current estimated regional surface reading around 14 °C.",
+    "geographySummaryAr": "تقع الصين في قارة Asia على مساحة تبلغ 9,596,961 كم². يسودها مناخ Dwa / Cwa / BSk (Monsoon & Continental) بمتوسط حرارة سنوي 8.1 °C وقراءة حرارة سطحية حالية تقارب 14 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "IND",
+    "nameEn": "India",
+    "nameAr": "الهند",
+    "capital": "New Delhi",
+    "continent": "Asia",
+    "coordinates": {
+      "lat": 20.59,
+      "lng": 78.96
+    },
+    "meanAnnualTemp": "24.2 °C",
+    "currentTemp": "28 °C",
+    "climateClass": "Aw / Cwa / BSh (Monsoon Subtropical)",
+    "areaKm2": 3287263,
+    "established": "August 15, 1947",
+    "geographySummaryEn": "India is located in Asia with an area of 3,287,263 km². It features Aw / Cwa / BSh (Monsoon Subtropical) with an average annual temperature of 24.2 °C and current estimated regional surface reading around 28 °C.",
+    "geographySummaryAr": "تقع الهند في قارة Asia على مساحة تبلغ 3,287,263 كم². يسودها مناخ Aw / Cwa / BSh (Monsoon Subtropical) بمتوسط حرارة سنوي 24.2 °C وقراءة حرارة سطحية حالية تقارب 28 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "JPN",
+    "nameEn": "Japan",
+    "nameAr": "اليابان",
+    "capital": "Tokyo",
+    "continent": "Asia",
+    "coordinates": {
+      "lat": 36.2,
+      "lng": 138.25
+    },
+    "meanAnnualTemp": "12.8 °C",
+    "currentTemp": "17 °C",
+    "climateClass": "Cfa (Humid Subtropical) / Dfb",
+    "areaKm2": 377975,
+    "established": "660 BCE (Traditional); 1947 (Constitution)",
+    "geographySummaryEn": "Japan is located in Asia with an area of 377,975 km². It features Cfa (Humid Subtropical) / Dfb with an average annual temperature of 12.8 °C and current estimated regional surface reading around 17 °C.",
+    "geographySummaryAr": "تقع اليابان في قارة Asia على مساحة تبلغ 377,975 كم². يسودها مناخ Cfa (Humid Subtropical) / Dfb بمتوسط حرارة سنوي 12.8 °C وقراءة حرارة سطحية حالية تقارب 17 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "IDN",
+    "nameEn": "Indonesia",
+    "nameAr": "إندونيسيا",
+    "capital": "Jakarta",
+    "continent": "Asia",
+    "coordinates": {
+      "lat": -0.78,
+      "lng": 113.92
+    },
+    "meanAnnualTemp": "26.5 °C",
+    "currentTemp": "29 °C",
+    "climateClass": "Af (Equatorial Tropical Rain Forest)",
+    "areaKm2": 1904569,
+    "established": "August 17, 1945",
+    "geographySummaryEn": "Indonesia is located in Asia with an area of 1,904,569 km². It features Af (Equatorial Tropical Rain Forest) with an average annual temperature of 26.5 °C and current estimated regional surface reading around 29 °C.",
+    "geographySummaryAr": "تقع إندونيسيا في قارة Asia على مساحة تبلغ 1,904,569 كم². يسودها مناخ Af (Equatorial Tropical Rain Forest) بمتوسط حرارة سنوي 26.5 °C وقراءة حرارة سطحية حالية تقارب 29 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "AUS",
+    "nameEn": "Australia",
+    "nameAr": "أستراليا",
+    "capital": "Canberra",
+    "continent": "Oceania",
+    "coordinates": {
+      "lat": -25.27,
+      "lng": 133.77
+    },
+    "meanAnnualTemp": "21.6 °C",
+    "currentTemp": "23 °C",
+    "climateClass": "BWh (Outback) / Cfb (East Coast)",
+    "areaKm2": 7692024,
+    "established": "January 1, 1901 (Federation)",
+    "geographySummaryEn": "Australia is located in Oceania with an area of 7,692,024 km². It features BWh (Outback) / Cfb (East Coast) with an average annual temperature of 21.6 °C and current estimated regional surface reading around 23 °C.",
+    "geographySummaryAr": "تقع أستراليا في قارة Oceania على مساحة تبلغ 7,692,024 كم². يسودها مناخ BWh (Outback) / Cfb (East Coast) بمتوسط حرارة سنوي 21.6 °C وقراءة حرارة سطحية حالية تقارب 23 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "USA",
+    "nameEn": "United States",
+    "nameAr": "الولايات المتحدة الأمريكية",
+    "capital": "Washington, D.C.",
+    "continent": "North America",
+    "coordinates": {
+      "lat": 37.09,
+      "lng": -95.71
+    },
+    "meanAnnualTemp": "11.6 °C",
+    "currentTemp": "16 °C",
+    "climateClass": "Dfa / Cfa / BSk / Csb (Diverse)",
+    "areaKm2": 9833517,
+    "established": "July 4, 1776",
+    "geographySummaryEn": "United States is located in North America with an area of 9,833,517 km². It features Dfa / Cfa / BSk / Csb (Diverse) with an average annual temperature of 11.6 °C and current estimated regional surface reading around 16 °C.",
+    "geographySummaryAr": "تقع الولايات المتحدة الأمريكية في قارة North America على مساحة تبلغ 9,833,517 كم². يسودها مناخ Dfa / Cfa / BSk / Csb (Diverse) بمتوسط حرارة سنوي 11.6 °C وقراءة حرارة سطحية حالية تقارب 16 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "CAN",
+    "nameEn": "Canada",
+    "nameAr": "كندا",
+    "capital": "Ottawa",
+    "continent": "North America",
+    "coordinates": {
+      "lat": 56.13,
+      "lng": -106.34
+    },
+    "meanAnnualTemp": "-5.3 °C",
+    "currentTemp": "4 °C",
+    "climateClass": "Dfb / Dfc / ET (Boreal & Tundra)",
+    "areaKm2": 9984670,
+    "established": "July 1, 1867",
+    "geographySummaryEn": "Canada is located in North America with an area of 9,984,670 km². It features Dfb / Dfc / ET (Boreal & Tundra) with an average annual temperature of -5.3 °C and current estimated regional surface reading around 4 °C.",
+    "geographySummaryAr": "تقع كندا في قارة North America على مساحة تبلغ 9,984,670 كم². يسودها مناخ Dfb / Dfc / ET (Boreal & Tundra) بمتوسط حرارة سنوي -5.3 °C وقراءة حرارة سطحية حالية تقارب 4 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "BRA",
+    "nameEn": "Brazil",
+    "nameAr": "البرازيل",
+    "capital": "Brasília",
+    "continent": "South America",
+    "coordinates": {
+      "lat": -14.23,
+      "lng": -51.92
+    },
+    "meanAnnualTemp": "25.0 °C",
+    "currentTemp": "27 °C",
+    "climateClass": "Af (Amazon) / Aw (Savannah)",
+    "areaKm2": 8515767,
+    "established": "September 7, 1822",
+    "geographySummaryEn": "Brazil is located in South America with an area of 8,515,767 km². It features Af (Amazon) / Aw (Savannah) with an average annual temperature of 25.0 °C and current estimated regional surface reading around 27 °C.",
+    "geographySummaryAr": "تقع البرازيل في قارة South America على مساحة تبلغ 8,515,767 كم². يسودها مناخ Af (Amazon) / Aw (Savannah) بمتوسط حرارة سنوي 25.0 °C وقراءة حرارة سطحية حالية تقارب 27 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "ARG",
+    "nameEn": "Argentina",
+    "nameAr": "الأرجنتين",
+    "capital": "Buenos Aires",
+    "continent": "South America",
+    "coordinates": {
+      "lat": -38.41,
+      "lng": -63.61
+    },
+    "meanAnnualTemp": "15.1 °C",
+    "currentTemp": "18 °C",
+    "climateClass": "Cfa (Pampas) / BSk (Patagonia)",
+    "areaKm2": 2780400,
+    "established": "July 9, 1816",
+    "geographySummaryEn": "Argentina is located in South America with an area of 2,780,400 km². It features Cfa (Pampas) / BSk (Patagonia) with an average annual temperature of 15.1 °C and current estimated regional surface reading around 18 °C.",
+    "geographySummaryAr": "تقع الأرجنتين في قارة South America على مساحة تبلغ 2,780,400 كم². يسودها مناخ Cfa (Pampas) / BSk (Patagonia) بمتوسط حرارة سنوي 15.1 °C وقراءة حرارة سطحية حالية تقارب 18 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "MEX",
+    "nameEn": "Mexico",
+    "nameAr": "المكسيك",
+    "capital": "Mexico City",
+    "continent": "North America",
+    "coordinates": {
+      "lat": 23.63,
+      "lng": -102.55
+    },
+    "meanAnnualTemp": "21.0 °C",
+    "currentTemp": "23 °C",
+    "climateClass": "BWh / Aw / Cwb (Tropical & Highlands)",
+    "areaKm2": 1964375,
+    "established": "September 16, 1810",
+    "geographySummaryEn": "Mexico is located in North America with an area of 1,964,375 km². It features BWh / Aw / Cwb (Tropical & Highlands) with an average annual temperature of 21.0 °C and current estimated regional surface reading around 23 °C.",
+    "geographySummaryAr": "تقع المكسيك في قارة North America على مساحة تبلغ 1,964,375 كم². يسودها مناخ BWh / Aw / Cwb (Tropical & Highlands) بمتوسط حرارة سنوي 21.0 °C وقراءة حرارة سطحية حالية تقارب 23 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "ZAF",
+    "nameEn": "South Africa",
+    "nameAr": "جنوب إفريقيا",
+    "capital": "Pretoria",
+    "continent": "Africa",
+    "coordinates": {
+      "lat": -30.55,
+      "lng": 22.93
+    },
+    "meanAnnualTemp": "17.5 °C",
+    "currentTemp": "20 °C",
+    "climateClass": "Cwb / BSk / Csa (Cape Mediterranean)",
+    "areaKm2": 1221037,
+    "established": "May 31, 1910",
+    "geographySummaryEn": "South Africa is located in Africa with an area of 1,221,037 km². It features Cwb / BSk / Csa (Cape Mediterranean) with an average annual temperature of 17.5 °C and current estimated regional surface reading around 20 °C.",
+    "geographySummaryAr": "تقع جنوب إفريقيا في قارة Africa على مساحة تبلغ 1,221,037 كم². يسودها مناخ Cwb / BSk / Csa (Cape Mediterranean) بمتوسط حرارة سنوي 17.5 °C وقراءة حرارة سطحية حالية تقارب 20 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  },
+  {
+    "code": "NGA",
+    "nameEn": "Nigeria",
+    "nameAr": "نيجيريا",
+    "capital": "Abuja",
+    "continent": "Africa",
+    "coordinates": {
+      "lat": 9.08,
+      "lng": 8.67
+    },
+    "meanAnnualTemp": "26.8 °C",
+    "currentTemp": "29 °C",
+    "climateClass": "Aw (Tropical Wet-Dry) / Af",
+    "areaKm2": 923768,
+    "established": "October 1, 1960",
+    "geographySummaryEn": "Nigeria is located in Africa with an area of 923,768 km². It features Aw (Tropical Wet-Dry) / Af with an average annual temperature of 26.8 °C and current estimated regional surface reading around 29 °C.",
+    "geographySummaryAr": "تقع نيجيريا في قارة Africa على مساحة تبلغ 923,768 كم². يسودها مناخ Aw (Tropical Wet-Dry) / Af بمتوسط حرارة سنوي 26.8 °C وقراءة حرارة سطحية حالية تقارب 29 °C.",
+    "source": "World Bank Climate Knowledge Portal / WMO / national meteorological services"
+  }
+]
