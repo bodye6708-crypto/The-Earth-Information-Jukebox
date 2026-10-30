@@ -1,9 +1,10 @@
 import os
 import datetime
-from fastapi import FastAPI, Depends, HTTPException, Query
+from fastapi import FastAPI, Depends, HTTPException, Query, Security, status, Header
+from fastapi.security import APIKeyHeader
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from app.config import settings
 from app.database import engine, Base, get_db
@@ -27,14 +28,36 @@ app = FastAPI(
     description="Backend API powering The Earth Information Jukebox with Verified Science",
 )
 
-# CORS Middleware
+# Strict CORS Allowlist (No wildcard '*' in production)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.CORS_ORIGINS,
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
 )
+
+# API Security Headers Middleware
+@app.middleware("http")
+async def add_security_headers(request, call_next):
+    response = await call_next(request)
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "SAMEORIGIN"
+    response.headers["X-XSS-Protection"] = "1; mode=block"
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    response.headers["Permissions-Policy"] = "geolocation=(), microphone=(), camera=()"
+    return response
+
+# Security Dependency for Protected Administrative Operations
+api_key_header = APIKeyHeader(name="X-Admin-Key", auto_error=False)
+
+def verify_admin_key(api_key: str = Security(api_key_header)):
+    if not api_key or api_key != settings.ADMIN_API_KEY:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Forbidden: Administrative privileges or valid X-Admin-Key required."
+        )
+    return True
 
 @app.get("/")
 def read_root():
@@ -78,23 +101,40 @@ def get_quiz_levels():
 
 @app.get("/api/quiz/level/{level_num}")
 def get_quiz_level_questions(level_num: int):
-    """Returns all 10 questions for a given level"""
+    """
+    Returns all 10 questions for a given level with ANSWER KEYS STRIPPED.
+    Defends against cheat inspections before official server-side grading.
+    """
     if level_num < 1 or level_num > len(QUIZ_LEVELS):
         raise HTTPException(status_code=404, detail="Quiz level not found. Valid levels are 1 through 10.")
     
     target_lvl = QUIZ_LEVELS[level_num - 1]
+    
+    # Strip correct answers and explanations from the student pre-submission payload
+    sanitized_questions = [
+        {
+            "id": q["id"],
+            "qEn": q["qEn"],
+            "qAr": q["qAr"],
+            "optionsEn": q["optionsEn"],
+            "optionsAr": q["optionsAr"],
+            "source": q["source"]
+        }
+        for q in target_lvl["questions"]
+    ]
+
     return {
         "level": target_lvl["level"],
         "titleEn": target_lvl["titleEn"],
         "titleAr": target_lvl["titleAr"],
         "difficulty": target_lvl["difficulty"],
-        "questions": target_lvl["questions"]
+        "questions": sanitized_questions
     }
 
 class QuizSubmitRequest(BaseModel):
-    level: int
+    level: int = Field(..., ge=1, le=10)
     answers: dict[str, int] # question_id (str) -> selected_option (int)
-    username: str | None = "guest"
+    username: str | None = Field(default="guest", max_length=50)
 
 @app.post("/api/quiz/submit")
 def submit_quiz_level(req: QuizSubmitRequest, db: Session = Depends(get_db)):
@@ -183,10 +223,15 @@ def get_countries(search: str | None = Query(None)):
 def get_children_stories():
     return CHILDREN_STORIES
 
-# ==================== AUDIT & ADMIN LOGS ====================
+# ==================== AUDIT & ADMIN LOGS (PROTECTED) ====================
 
 @app.get("/api/admin/audit-logs")
-def get_audit_logs(limit: int = 50, db: Session = Depends(get_db)):
+def get_audit_logs(
+    limit: int = Query(50, ge=1, le=200),
+    db: Session = Depends(get_db),
+    is_admin: bool = Depends(verify_admin_key)
+):
+    """Protected endpoint requiring X-Admin-Key authorization"""
     logs = db.query(AuditLog).order_by(AuditLog.id.desc()).limit(limit).all()
     return [
         {

@@ -775,14 +775,14 @@ QUIZ_LEVELS = [
             },
             {
                 "id": 65,
-                "qEn": "What is the average salinity of the open global ocean under normal conditions?",
-                "qAr": "ما هو متوسط الملوحة القياسي لمياه المحيطات المفتوحة حول العالم؟",
-                "optionsEn": ["Approximately 5 PSU (0.5%)", "Approximately 35 PSU (~35 grams per liter / 3.5%)", "Approximately 70 PSU (7%)", "Approximately 120 PSU (12%)"],
-                "optionsAr": ["حوالي 5 وحدات ملوحة (0.5%)", "حوالي 35 وحدة ملوحة (35 غراماً/لتر أو 3.5%)", "حوالي 70 وحدة ملوحة (7%)", "حوالي 120 وحدة ملوحة"],
+                "qEn": "What is the standard salinity measurement of the open global ocean on the Practical Salinity Scale (PSS-78)?",
+                "qAr": "ما هو القياس المعياري لملوحة مياه المحيطات المفتوحة وفقاً لمقياس الملوحة العملي (PSS-78)؟",
+                "optionsEn": ["Approximately 5 PSU (0.5% mass fraction)", "Approximately 35 PSU (~35 g of dissolved salts per kg of seawater / 3.5%)", "Approximately 70 PSU (7%)", "Approximately 120 PSU (12%)"],
+                "optionsAr": ["حوالي 5 وحدات ملوحة (0.5%)", "حوالي 35 وحدة ملوحة عملية (~35 غراماً من الأملاح الذائبة لكل كغم ماء بحر أو 3.5%)", "حوالي 70 وحدة ملوحة (7%)", "حوالي 120 وحدة ملوحة"],
                 "correct": 1,
-                "explanationEn": "Open ocean salinity typically ranges between 33 and 37 practical salinity units (PSU), averaging ~35 PSU (about 35 grams of dissolved salts per kilogram of seawater).",
-                "explanationAr": "يبلغ متوسط ملوحة مياه المحيطات حوالي 35 جزءاً في الألف (35 جم ملح لكل كجم ماء، أي نحو 3.5%).",
-                "source": "IOC/UNESCO Intergovernmental Oceanographic Commission"
+                "explanationEn": "On the Practical Salinity Scale (PSS-78), salinity is a dimensionless conductivity ratio with 35 corresponding to approximately 35.165 g/kg on the modern TEOS-10 Absolute Salinity scale (g/kg).",
+                "explanationAr": "وفقاً لمقياس الملوحة العملي (PSS-78) المعتمد في علم المحيطات الفيزيائي، تبلغ ملوحة مياه المحيط المفتوحة نحو 35 وحدة (ما يعادل قرابة 35.165 غرام ملح لكل كيلوغرام ماء وفق معيار TEOS-10 الدولي).",
+                "source": "UNESCO/IOC PSS-78 & TEOS-10 International Thermodynamic Equation of Seawater"
             },
             {
                 "id": 66,
@@ -948,14 +948,14 @@ QUIZ_LEVELS = [
             },
             {
                 "id": 80,
-                "qEn": "What does a radiative forcing value of +2.72 W/m² (IPCC AR6) represent in Earth's energy budget?",
-                "qAr": "ماذا يمثل رقم التأثير الإشعاعي الصافي البالغ +2.72 واط/م² في تقرير الهيئة الدولية للمناخ (IPCC)؟",
-                "optionsEn": ["Solar radiation decrease", "Net energy imbalance warming the Earth system relative to 1750", "The absolute power output of sunlight", "Geothermal heat flow from Earth's core"],
-                "optionsAr": ["نقصان الإشعاع الشمسي", "فائض الطاقة الصافي الذي يحبس الحرارة في مناخ الأرض مقارنة بعام 1750", "إجمالي طاقة الشمس الواصلة للأرض", "الحرارة الجوفية المنبعثة من لب الأرض"],
+                "qEn": "How does Effective Radiative Forcing (+2.72 W/m², IPCC AR6) fundamentally differ from Earth's observed Energy Imbalance (EEI)?",
+                "qAr": "كيف يختلف التأثير الإشعاعي الفعال (+2.72 واط/م² في تقرير IPCC AR6) جوهرياً عن اختلال ميزانية طاقة الأرض المقاس (EEI)؟",
+                "optionsEn": ["They describe identical quantities under different names", "Radiative forcing measures the imposed net energy perturbation relative to 1750, whereas EEI is the actual ongoing net heat uptake rate (CERES/Argo ~0.76 W/m²)", "Radiative forcing only accounts for solar cycles", "EEI measures core geothermal flow alone"],
+                "optionsAr": ["أنهما يعبران عن نفس المقدار تماماً بأسماء مختلفة", "التأثير الإشعاعي يقيس اضطراب الطاقة الصافي المفروض مقارنة بعام 1750، بينما EEI هو المعدل الفعلي لامتصاص وتخزين الحرارة حالياً في المحيطات (~0.76 واط/م²)", "التأثير الإشعاعي يقيس دورات الشمس فقط", "EEI يقيس تدفق حرارة باطن الأرض وحدها"],
                 "correct": 1,
-                "explanationEn": "Radiative forcing is the net change in Earth's energy balance (incoming minus outgoing radiation at the top of atmosphere), indicating anthropogenic warming relative to pre-industrial conditions.",
-                "explanationAr": "التأثير الإشعاعي يعبر عن الخلل الصافي في ميزانية طاقة الأرض (الطاقة الواردة ناقص الطاقة المشعة للفضاء) مما يسبب احتباس الحرارة مقارنة بحقبة ما قبل الصناعة.",
-                "source": "IPCC AR6 Synthesis Report Chapter 2"
+                "explanationEn": "Radiative forcing (+2.72 W/m² relative to 1750) is the unadjusted external perturbation. As the planet warms, Planck and other feedbacks increase outgoing infrared radiation, leaving the actual observed Earth's Energy Imbalance (EEI) at ~0.76 to 1.0 W/m² absorbed mainly by oceans.",
+                "explanationAr": "التأثير الإشعاعي هو الاضطراب الخارجي المحتجز للطاقة (+2.72 واط/م²). ومع ارتفاع حرارة الكوكب، تشع الأرض مزيداً من الأشعة تحت الحمراء إلى الفضاء، فيصبح صافي اختلال طاقة الأرض الحقيقي المخزن في المحيطات (EEI) بين 0.76 و 1.0 واط/م².",
+                "source": "IPCC AR6 WG1 Chapter 7 / Loeb et al., Geophysical Research Letters (CERES & Argo)"
             }
         ]
     },
@@ -1066,14 +1066,14 @@ QUIZ_LEVELS = [
             },
             {
                 "id": 90,
-                "qEn": "What is the primary biological enzyme on Earth responsible for fixing inorganic CO₂ into organic glucose during photosynthesis?",
-                "qAr": "ما هو الإنزيم الحيوي الأكثر وفرة على كوكب الأرض والمسؤول عن تثبيت ثاني أكسيد الكربون غير العضوي أثناء البناء الضوئي؟",
-                "optionsEn": ["ATP Synthase", "RuBisCO (Ribulose-1,5-bisphosphate carboxylase-oxygenase)", "DNA Polymerase", "Amylase"],
-                "optionsAr": ["إنزيم بناء الطاقة ATP Synthase", "إنزيم الروبيسكو (RuBisCO)", "إنزيم بلمرة الدنا", "الأميليز"],
+                "qEn": "What is the primary role of the enzyme RuBisCO in photosynthetic carbon assimilation within the Calvin-Benson cycle?",
+                "qAr": "ما هو الدور البيوكيميائي الرئيسي لإنزيم الروبيسكو (RuBisCO) في تثبيت الكربون في دورة كالفن-بنسون للبناء الضوئي؟",
+                "optionsEn": ["Synthesizing ATP from ADP and phosphate", "Catalyzing the primary carboxylation of ribulose-1,5-bisphosphate (RuBP) with CO₂ to form 3-phosphoglycerate (3-PGA)", "Transcribing chloroplast messenger RNA", "Hydrolyzing complex starch into maltose"],
+                "optionsAr": ["بناء مركب الطاقة ATP من الفوسفات", "تحفيز الكربكسلة الأولية لمركب ريبولوز 1،5-ثنائي الفوسفات (RuBP) بدمجه مع CO₂ لإنتاج 3-PGA", "نسخ الرنا المرسال في البلاستيدات الخضراء", "تحليل النشا المعقد إلى سكر مالتوز"],
                 "correct": 1,
-                "explanationEn": "RuBisCO is considered the most abundant enzyme on Earth, catalyzing the primary rate-limiting step of carbon fixation in the Calvin-Benson cycle across the global biosphere.",
-                "explanationAr": "إنزيم الروبيسكو هو الإنزيم الرئيسي المسؤول عن تثبيت الكربون في دورة كالفن لكافة النباتات والعوالق، وهو المحرك الجزيئي للغلاف الحيوي.",
-                "source": "Biochemical Journal / Plant Cell Biology"
+                "explanationEn": "RuBisCO does not synthesize glucose directly; it catalyzes the rate-limiting carboxylation step fusing CO₂ with RuBP into two 3-phosphoglycerate (3-PGA) precursors which the Calvin cycle subsequently reduces into triose-phosphate sugars.",
+                "explanationAr": "لا يقوم الروبيسكو بإنتاج الجلوكوز مباشرة؛ بل يحفز الخطوة المحددة للسرعة عبر دمج CO₂ مع RuBP لتكوين جزيئين من 3-فوسفوغليسيرات (3-PGA)، ثم تُختزل لاحقاً في الدورة لإنتاج السكريات الثلاثية.",
+                "source": "Berg et al., Biochemistry / Annual Review of Plant Biology"
             }
         ]
     },
@@ -1118,25 +1118,25 @@ QUIZ_LEVELS = [
             },
             {
                 "id": 94,
-                "qEn": "What is the Clapp-Hornberger / Clausius-Clapeyron thermodynamic relationship concerning atmospheric moisture capacity and warming?",
-                "qAr": "ما هي العلاقة الثرموديناميكية لمعادلة كلاوزيوس-كلابيرون بشأن قدرة الهواء على حمل بخار الماء مع ارتفاع الحرارة؟",
-                "optionsEn": ["Moisture capacity decreases by 10% per °C", "Atmospheric water-holding capacity increases by roughly 7% for every 1°C increase in temperature", "Moisture capacity is completely independent of temperature", "Moisture capacity doubles every 0.1°C"],
-                "optionsAr": ["تقل سعة الرطوبة بمعدل 10% لكل درجة مئوية", "تزداد قدرة الغلاف الجوي على استيعاب بخار الماء بحوالي 7% لكل ارتفاع بمقدار 1°C", "سعة الرطوبة مستقلة تماماً عن درجة الحرارة", "تتضاعف سعة الرطوبة كل 0.1 درجة"],
+                "qEn": "What thermodynamic relationship dictates that atmospheric saturation vapor pressure increases by ~7% per 1°C of warming?",
+                "qAr": "ما هي العلاقة الثرموديناميكية الفيزيائية التي تحدد أن ضغط تشبع بخار الماء في الهواء يزداد بنحو 7% لكل درجة مئوية ارتفاع في الحرارة؟",
+                "optionsEn": ["Clapp-Hornberger pedotransfer soil water retention function", "Clausius-Clapeyron thermodynamic phase equilibrium relation", "Fourier's law of thermal conduction", "Navier-Stokes momentum conservation"],
+                "optionsAr": ["دالة كلاب-هورنبرغر لخاصية احتباس مياه التربة المسامية", "معادلة كلاوزيوس-كلابيرون للاتزان الطوري للحرارة الكامنة (Clausius-Clapeyron)", "قانون فورييه للتوصيل الحراري", "معادلة نافيير-ستوكس لحركة الموائع"],
                 "correct": 1,
-                "explanationEn": "The Clausius-Clapeyron equation dictates that the saturation vapor pressure of water in air increases quasi-exponentially at roughly ~6.5% to 7% per degree Celsius of warming.",
-                "explanationAr": "تثبت معادلة كلاوزيوس-كلابيرون أن ضغط تشبع بخار الماء يزداد بنحو 7% لكل درجة مئوية زيادة، مما يغذي العواصف الشديدة وموجات الجفاف المتعاقبة.",
-                "source": "Held and Soden (2006) / Journal of Climate"
+                "explanationEn": "The Clausius-Clapeyron equation describes the vapor-liquid phase transition equilibrium where saturation vapor pressure rises ~6.5% to 7% per °C (unlike the Clapp-Hornberger formulation which models hydraulic soil-moisture retention curves).",
+                "explanationAr": "معادلة كلاوزيوس-كلابيرون هي العلاقة الفيزيائية للاتزان الطوري لبخار الماء وتحدد زيادة ضغط التشبع بنحو 7% لكل درجة مئوية (بخلاف معادلة كلاب-هورنبرغر المخصصة لخصائص الاحتفاظ برطوبة التربة المسامية).",
+                "source": "Held and Soden (2006) / IAPWS Formulation / Journal of Climate"
             },
             {
                 "id": 95,
-                "qEn": "What is the name of the ultra-low velocity zones (ULVZs) and Large Low Shear Velocity Provinces (LLSVPs) discovered seismically atop the core-mantle boundary?",
-                "qAr": "ما هي التراكيب الجيوديناميكية الغامضة ذات السرعات الزلزالية المنخفضة المكتشفة في قاع الوشاح فوق اللب مباشرة؟",
-                "optionsEn": ["Subducting slabs", "The African and Pacific LLSVPs ('superplume' thermochemical piles)", "Asthenospheric chimneys", "Granitic batholiths"],
-                "optionsAr": ["ألواح الانغراز الباردة", "مقاطعات LLSVP الإفريقية والهادئة (الأكوام الكيميائية الحرارية العملاقة)", "مداخن الغلاف الموري", "باثوليثات الغرانيت"],
+                "qEn": "In deep-mantle seismology, how do Large Low Shear Velocity Provinces (LLSVPs) differ from Ultra-Low Velocity Zones (ULVZs)?",
+                "qAr": "في علم الزلازل لوشاح الأرض العميق، كيف تختلف المقاطعات الكبرى منخفضة سرعة القص (LLSVPs) عن مناطق السرعة الفائقة الانخفاض (ULVZs)؟",
+                "optionsEn": ["They are identical features discovered by different authors", "LLSVPs are continent-sized structures (~thousands of km wide, hundreds of km high) beneath Africa and the Pacific, whereas ULVZs are thin, concentrated basal patches (5-40 km thick) directly atop the core-mantle boundary with extreme velocity drops (up to -30% to -50%)", "LLSVPs are located in the upper crust while ULVZs are inside the inner core", "ULVZs are caused only by oceanic tides"],
+                "optionsAr": ["هما نفس التركيب الجيولوجي تماماً", "مقاطعات LLSVP هي كتل عملاقة بحجم القارات (آلاف الكيلومترات عرضاً ومئات الكيلومترات ارتفاعاً) تحت إفريقيا والهادئ، بينما ULVZs هي رقع قاعدية رقيقة (سمكها 5-40 كم فقط) فوق اللب مباشرة وتتميز بهبوط زلزالي فائق العنف يصل إلى -30% حتى -50%", "تقع LLSVPs في القشرة السطحية بينما ULVZs داخل اللب الداخلي", "تنشأ ULVZs بسبب مد وجزر المحيطات فقط"],
                 "correct": 1,
-                "explanationEn": "LLSVPs are continent-sized, antipodal thermochemical piles atop the core-mantle boundary beneath Africa and the Pacific, suspected to be roots of deep mantle plumes.",
-                "explanationAr": "أقاليم LLSVP هي كتل ضخمة بحجم القارات ترقد فوق اللب الخارجي تحت إفريقيا والمحيط الهادئ وتتميز ببطء مرور الموجات الزلزالية وتغذي صواعد الوشاح.",
-                "source": "Garnero et al., Nature Geoscience 2016"
+                "explanationEn": "LLSVPs are massive, thermochemical piles thousands of kilometers wide. In contrast, ULVZs are localized, thin (5–40 km thick) lenses with dramatic seismic velocity drops (-10% to -30% for P-waves, -30% to -50% for S-waves), likely representing partial melt or iron-enriched basal magma remnants.",
+                "explanationAr": "مقاطعات LLSVPs كتل وشاحية هائلة بعرض آلاف الكيلومترات، في حين أن مناطق ULVZs هي عدسات موضعية شديدة الرقة (5-40 كم) فوق اللب مباشرة تشهد انخفاضاً زلزالياً فائقاً (-30% إلى -50% لموجات القص) وتشير إلى انصهار جزئي أو صخور غنية جداً بالحديد.",
+                "source": "Garnero, McNamara, and Shim (2016), Nature Geoscience / Thorne and Garnero (2004)"
             },
             {
                 "id": 96,
@@ -1184,14 +1184,14 @@ QUIZ_LEVELS = [
             },
             {
                 "id": 100,
-                "qEn": "What is the fundamental planetary boundary definition of the Earth System Anthropocene epoch?",
-                "qAr": "ما هو التعريف العلمي المقترح لبدء عصر 'الأنثروبوسين' (Anthropocene) في تاريخ نظام كوكب الأرض؟",
-                "optionsEn": ["The invention of agriculture 10,000 years ago", "The mid-20th century Great Acceleration, marked by global radionuclide fallout, plastics, and unprecedented geochemical disruptions", "The construction of the Pyramids", "The Industrial Revolution in 1780 only"],
-                "optionsAr": ["ظهور الزراعة قبل 10 آلاف عام", "التسارع الكبير في منتصف القرن العشرين (Great Acceleration) وظهور النظائر المشعة والبلاستيك وتغير كيمياء الغلاف الحيوي", "بناء الأهرامات", "بداية الثورة الصناعية في 1780 فقط"],
+                "qEn": "What is the formal stratigraphic and Earth system science status of the proposed 'Anthropocene' epoch as evaluated by the International Commission on Stratigraphy (ICS / IUGS)?",
+                "qAr": "ما هو الوضع الطباقي والعلمي الرسمي لمصطلح 'الأنثروبوسين' (Anthropocene) وفقاً لتقييم اللجنة الدولية للطبقات والاتحاد الدولي للعلوم الجيولوجية (ICS / IUGS)؟",
+                "optionsEn": ["An officially ratified geological period replacing the Quaternary", "A powerful interdisciplinary Earth system concept marking human impact, which was formally rejected in 2024 by the ICS/IUGS as an official chronostratigraphic unit", "A myth with no measurable scientific evidence", "A recognized Mesozoic subdivision"],
+                "optionsAr": ["عصر جيولوجي رسمي معتمد بالكامل بديلاً للعصر الرباعي", "مفهوم علمي قوي في علوم نظام الأرض يصف التأثير البشري، لكنه رُفض رسمياً عام 2024 من قبل اللجنة الدولية للطبقات (ICS) كوحدة زمنية جيولوجية رسمية على المقياس الدولي", "أسطورة غير مدعومة بأي أدلة رصدية", "أحد أقسام حقبة الحياة الوسطى"],
                 "correct": 1,
-                "explanationEn": "The Anthropocene Working Group identified the mid-20th-century Great Acceleration (~1950) characterized by global plutonium radionuclides from nuclear testing, persistent microplastics, and abrupt shifts in biogeochemical cycles.",
-                "explanationAr": "حدد فريق عمل الأنثروبوسين منتصف القرن العشرين (1950) كنقطة تحول كوكبية حاسمة تميزت بتسارع بيئي وتشتت النظائر المشعة والبلاستيك وتغير دورات النيتروجين والكربون عالمياً.",
-                "source": "Anthropocene Working Group (AWG) / Science 2016"
+                "explanationEn": "In March 2024, the Subcommission on Quaternary Stratigraphy and IUGS voted against ratifying the Anthropocene as a formal geological epoch (favoring its continued use as an overarching, informal Earth-system geological 'event').",
+                "explanationAr": "في مارس 2024، صوتت اللجنة الفرعية للطبقات الرباعية والاتحاد الدولي للعلوم الجيولوجية (IUGS) بعدم إدراج الأنثروبوسين كعصر رسمي في الجدول الطباقي القياسي، مع تفضيل استخدامه كمفهوم علمي أو 'حدث جيولوجي' يصف التأثيرات البشرية الكوكبية.",
+                "source": "International Commission on Stratigraphy (ICS) / IUGS Statement March 2024 / Nature News"
             }
         ]
     }
