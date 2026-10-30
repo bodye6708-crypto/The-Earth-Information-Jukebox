@@ -34,6 +34,15 @@ import type {
   ChildrenStory,
   QuizLevel
 } from './types';
+import {
+  STATIC_QUIZ_LEVELS,
+  STATIC_CLIMATE_INDICATORS,
+  STATIC_HISTORICAL_CLIMATE,
+  STATIC_GEOLOGICAL_CHAPTERS,
+  STATIC_PUBLICATIONS,
+  STATIC_COUNTRIES,
+  STATIC_STORIES
+} from './staticData';
 
 export default function App() {
   const [lang, setLang] = useState<Language>('ar');
@@ -41,14 +50,14 @@ export default function App() {
   const [backendStatus, setBackendStatus] = useState<string>('connecting');
   const [cinematicIntroActive, setCinematicIntroActive] = useState<boolean>(true);
 
-  // Data States loaded from API
-  const [climateIndicators, setClimateIndicators] = useState<ClimateIndicator[]>([]);
-  const [historicalClimate, setHistoricalClimate] = useState<HistoricalClimatePoint[]>([]);
-  const [geologicalChapters, setGeologicalChapters] = useState<GeologicalChapter[]>([]);
-  const [publications, setPublications] = useState<PeerPublication[]>([]);
-  const [countries, setCountries] = useState<CountryProfile[]>([]);
-  const [stories, setStories] = useState<ChildrenStory[]>([]);
-  const [selectedCountry, setSelectedCountry] = useState<CountryProfile | null>(null);
+  // Data States loaded from API with instant static fallback for standalone Vercel / Netlify hosting
+  const [climateIndicators, setClimateIndicators] = useState<ClimateIndicator[]>(STATIC_CLIMATE_INDICATORS);
+  const [historicalClimate, setHistoricalClimate] = useState<HistoricalClimatePoint[]>(STATIC_HISTORICAL_CLIMATE);
+  const [geologicalChapters, setGeologicalChapters] = useState<GeologicalChapter[]>(STATIC_GEOLOGICAL_CHAPTERS);
+  const [publications, setPublications] = useState<PeerPublication[]>(STATIC_PUBLICATIONS);
+  const [countries, setCountries] = useState<CountryProfile[]>(STATIC_COUNTRIES);
+  const [stories, setStories] = useState<ChildrenStory[]>(STATIC_STORIES);
+  const [selectedCountry, setSelectedCountry] = useState<CountryProfile | null>(STATIC_COUNTRIES[0] || null);
   const [countrySearch, setCountrySearch] = useState<string>('');
 
   // 3D Three.js Globe State
@@ -67,9 +76,9 @@ export default function App() {
   const audioContextRef = useRef<AudioContext | null>(null);
 
   // Quiz 10x10 State
-  const [quizLevels, setQuizLevels] = useState<QuizLevel[]>([]);
+  const [quizLevels, setQuizLevels] = useState<QuizLevel[]>(STATIC_QUIZ_LEVELS);
   const [activeQuizLevel, setActiveQuizLevel] = useState<number>(1);
-  const [currentLevelData, setCurrentLevelData] = useState<QuizLevel | null>(null);
+  const [currentLevelData, setCurrentLevelData] = useState<QuizLevel | null>(STATIC_QUIZ_LEVELS[0] || null);
   const [quizQuestionIndex, setQuizQuestionIndex] = useState<number>(0);
   const [userSelectedOption, setUserSelectedOption] = useState<number | null>(null);
   const [userLevelAnswers, setUserLevelAnswers] = useState<Record<string, number>>({});
@@ -113,10 +122,20 @@ export default function App() {
     setUserLevelAnswers({});
     setLevelScore(0);
     setLevelCompleted(false);
+
+    // Instant local static data lookup (works offline and on Vercel without backend)
+    const localLvl = STATIC_QUIZ_LEVELS.find(l => l.level === lvlNum);
+    if (localLvl) {
+      setCurrentLevelData(localLvl);
+    }
+
+    // Attempt backend fetch if online
     fetch(`/api/quiz/level/${lvlNum}`)
       .then(res => res.json())
       .then(setCurrentLevelData)
-      .catch(console.error);
+      .catch(() => {
+        // Fallback already assigned
+      });
   };
 
   // High-Resolution 3D Globe Implementation
